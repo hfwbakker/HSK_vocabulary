@@ -7,12 +7,15 @@ PROJECT
 
 
 NEXT UP
-- Write a function that allows players to select which set of info they want to be prompted first (汉子, pinyin, or definition).
-- Finetune.
-- Check if all the logic is correct (like the filtering of rows is done correctly).
+- For some reason only 1 character words are shown? -> more sophisticated filtering needed. Look into filtering by function in this link: https://stackoverflow.com/questions/51589573/pandas-filter-data-frame-rows-by-function 
+- Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Integrate with Jupyter notebook to view data?
 
 LOG
+--- Monday July 26th 2021 ---
+- Fired up the script again, cannot get it to work on Windows because (presumably) the Chinese character throw an encoding error I don't know how to fix yet. Tried updating Python to 3.9.6 and updated encoding related stuff but didn't work, even after restarting.
+- Found out that the script only returns 1 character words because the filter_df() function only returns true for single character entries that match the known_characters list. Trying to find a work around using a function filter.
+
 --- Sunday July 18th 2021 ---
 - Figured out the key error - editing the dataframe without resetting the index causes gaps in the index that if called throw a key error (hence key error corresponding with no. input). Fixed.
 - User can now select with word list to choose and the logic does the rest.

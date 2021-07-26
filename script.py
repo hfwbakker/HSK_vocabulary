@@ -31,12 +31,15 @@ def select_list():
 	if choice == '1':
 		print("Selected HSK 1.")
 		df = filter_df(df1, known_characters)
+		print(df)
 	elif choice == '2':
 		print("Selected HSK 2.")
 		df = filter_df(df2, known_characters)
+		print(df)
 	elif choice == '3':
 		print("Selected HSK 3.")
 		df = filter_df(df3, known_characters)
+		print(df)
 	else:
 		print("Choice unclear, plese reenter.")
 		select_list()
@@ -77,8 +80,20 @@ print("\n")
 
 # df = filter_df(df3, known_characters)
 
-retrieve_word(select_list())
+# retrieve_word(select_list())
 
 # select_list()
+char = "娶你好".split()
+
+# contains = True
+
+# for i in char:
+# 	if i in known_characters:
+# 		continue
+# 	else:
+# 		contains = False
+# print(contains)
+
+print(char in known_characters)
 
 
