@@ -10,6 +10,7 @@ NEXT UP
 - Write a function that allows players to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Finetune.
 - Check if all the logic is correct (like the filtering of rows is done correctly).
+- Integrate with Jupyter notebook to view data?
 
 LOG
 --- Sunday July 18th 2021 ---
