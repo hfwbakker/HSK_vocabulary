@@ -7,11 +7,16 @@ PROJECT
 
 
 NEXT UP
-- For some reason only 1 character words are shown? -> more sophisticated filtering needed. Look into filtering by function in this link: https://stackoverflow.com/questions/51589573/pandas-filter-data-frame-rows-by-function 
+- Filtering still not working properly -> look into application of boolean filtering in pandas. Refer to lambda_test.py for some test results regarding one line statements that return the right Boolean value I need.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Integrate with Jupyter notebook to view data?
 
 LOG
+--- Tuesday July 27th 2021 ---
+- LAMBDA is also not clearly the answer so far. I manage to make LAMBDA or "checking membership"(need to look in to that...) statement that returns True when all characters do indeed exist in the known_characters list, but its not immediately clear how to use that statement to filter a pandas dataframe column (in this case referred to as a Series as I understand). Perhaps need to look in to pandas filtering with Booleans.
+- Created lambda_test.py for further testing one line statements and functions.
+- The filter by function link was unfruitful, but I have found out that LAMBDA is likely the technique I will need to use for "function filtering" rows in pandas. Tangent incoming.
+
 --- Monday July 26th 2021 ---
 - Fired up the script again, cannot get it to work on Windows because (presumably) the Chinese character throw an encoding error I don't know how to fix yet. Tried updating Python to 3.9.6 and updated encoding related stuff but didn't work, even after restarting.
 - Found out that the script only returns 1 character words because the filter_df() function only returns true for single character entries that match the known_characters list. Trying to find a work around using a function filter.

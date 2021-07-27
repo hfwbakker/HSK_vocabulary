@@ -6,6 +6,7 @@ xls = pd.ExcelFile('data/HSK_vocabulary.xlsx')
 df1 = pd.read_excel(xls, 'HSK_1')
 df2 = pd.read_excel(xls, 'HSK_2')
 df3 = pd.read_excel(xls, 'HSK_3')
+faux_df = pd.read_excel(xls, 'TEST')
 
 
 ### KNOWN CHARACTERS LOGIC ###
@@ -78,22 +79,45 @@ print("######################################")
 print("\n")
 
 
-# df = filter_df(df3, known_characters)
-
-# retrieve_word(select_list())
-
 # select_list()
-char = "娶你好".split()
-
-# contains = True
-
-# for i in char:
-# 	if i in known_characters:
-# 		continue
-# 	else:
-# 		contains = False
-# print(contains)
-
-print(char in known_characters)
 
 
+################################
+################################
+################################
+
+
+print(faux_df)
+
+new_df = faux_df[faux_df.apply(lambda x: x['char'] == "么"), axis=1]
+
+print(new_df)
+
+
+# char = "娶你好".split()
+
+# def test_filtering(row):
+# 	contains = True
+
+# 	for i in row:
+# 		if i in known_characters:
+# 			continue
+# 		else:
+# 			contains = False
+	
+# 	return contains
+
+# m = df3.apply(test_filtering, axis=1)
+
+# n = df3[df3['char'].str[0].contains('你')]
+
+# print(n)
+
+# df[df['var1'].str[0] == 'A']
+
+# newdf = df1[df1.apply(all(list(map(lambda x: x in known_characters, df1['char']))))]
+
+# print(df1['char'][0])
+# print(type(df1))
+# print(type(df1['char']))
+# print(type(df1['char'][0]))
