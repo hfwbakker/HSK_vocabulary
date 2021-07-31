@@ -12,6 +12,13 @@ NEXT UP
 - Integrate with Jupyter notebook to view data?
 
 LOG
+--- Saturday July 31st 2021 ---
+- The filter I need is still not working, even after asking Reddit so far no result. Will try again tomorrow.
+- Install Jupyter
+- Still not working. Looking in to list comprehension filters.
+- OR: ask pandas if there values in 'char' that are NOT in "known_characters".
+- Realization: I can make a new colum that evaluates to True or False based on if all characters in 'char' exists in 'known_characters' so I can simply create that new column and THEN based on this True/False column filter the words I need.
+
 --- Tuesday July 27th 2021 ---
 - LAMBDA is also not clearly the answer so far. I manage to make LAMBDA or "checking membership"(need to look in to that...) statement that returns True when all characters do indeed exist in the known_characters list, but its not immediately clear how to use that statement to filter a pandas dataframe column (in this case referred to as a Series as I understand). Perhaps need to look in to pandas filtering with Booleans.
 - Created lambda_test.py for further testing one line statements and functions.
