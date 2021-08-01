@@ -7,11 +7,13 @@ PROJECT
 
 
 NEXT UP
-- Filtering still not working properly -> look into application of boolean filtering in pandas. Refer to lambda_test.py for some test results regarding one line statements that return the right Boolean value I need.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
-- Integrate with Jupyter notebook to view data?
 
 LOG
+--- Sunday August 1st 2021 ---
+- That works! Filtering now works properly.
+- New idea: turn word series into a list, filter out each word based on known character list, then filter pandas df based on if the words in df match the words i know list.
+
 --- Saturday July 31st 2021 ---
 - The filter I need is still not working, even after asking Reddit so far no result. Will try again tomorrow.
 - Install Jupyter

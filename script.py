@@ -51,8 +51,24 @@ def select_list():
 
 ### FILTER DF ###
 def filter_df(df, chars):
-	filtered_df = df[df.char.isin(known_characters)]
+	all_df_words = df['char'].tolist()
+
+	filtered_words = []
+	for i in all_df_words:
+		valid = True
+		for j in i:
+			if j in chars:
+				continue
+			else:
+				valid = False
+		if valid == True:
+			filtered_words.append(i)
+		else:
+			continue
+
+	filtered_df = df[df['char'].isin(filtered_words)]
 	final_df = filtered_df.reset_index(drop=True)
+	print(final_df)
 	return final_df
 
 
@@ -79,45 +95,4 @@ print("######################################")
 print("\n")
 
 
-# select_list()
-
-
-################################
-################################
-################################
-
-
-print(faux_df)
-
-new_df = faux_df[faux_df.apply(lambda x: x['char'] == "么"), axis=1]
-
-print(new_df)
-
-
-# char = "娶你好".split()
-
-# def test_filtering(row):
-# 	contains = True
-
-# 	for i in row:
-# 		if i in known_characters:
-# 			continue
-# 		else:
-# 			contains = False
-	
-# 	return contains
-
-# m = df3.apply(test_filtering, axis=1)
-
-# n = df3[df3['char'].str[0].contains('你')]
-
-# print(n)
-
-# df[df['var1'].str[0] == 'A']
-
-# newdf = df1[df1.apply(all(list(map(lambda x: x in known_characters, df1['char']))))]
-
-# print(df1['char'][0])
-# print(type(df1))
-# print(type(df1['char']))
-# print(type(df1['char'][0]))
+retrieve_word(select_list())

@@ -13,21 +13,41 @@ for i in lines:
 		continue
 	known_characters.append(i[0])
 
-
 known_letters = ['a', 'b', 'c', 'd']
 
-print(words_df)
+all_words = words_df['word'].tolist()
+
+filtered_words = []
+for i in all_words:
+	valid = True
+	for j in i:
+		if j in known_letters:
+			continue
+		else:
+			valid = False
+	if valid == True:
+		filtered_words.append(i)
+	else:
+		continue
+
+print(words_df[words_df['word'].isin(filtered_words)])
+
+
+
+
+
+
+
 
 # words_df['known_or_not'] =  words_df['word'].isin(known_letters)
 
-words_df['known_or_not'] = all([e in words_df['word'] for e in known_characters if e in words_df['word']])
+# words_df['known_or_not'] = all([e in words_df['word'] for e in known_characters if e in words_df['word']])
 
-print(words_df)
+# print(words_df)
 
-filt = (all(letter in known_letters.values for letter in word) for word in words_df['word'].values)
-learnable = words_df[filt]
+# learnable = [word for word in words_to_learn if all(letter in known_letters for letter in word)]
 
-print(learnable)
+# print(learnable)
 
 
 # filt = (all(letter in known_letters.values for letter in word) for word in words_to_learn.values)
@@ -43,17 +63,6 @@ print(learnable)
 # print(learnable)
 
 # print(faux_df['char'].values)
-
-
-
-
-
-
-
-
-
-
-
 
 
 # print(faux_df)
