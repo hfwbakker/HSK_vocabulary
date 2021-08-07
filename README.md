@@ -8,8 +8,18 @@ PROJECT
 
 NEXT UP
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
+- Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
+- Write a better exit function.
+- Write a function where you can select how many words you want to test and then keep score.
+- When selected a list to practice, a message should display something like "xxx out of total amount words xxx displayed" to indicate how many words are still "unreadable".
+- Look in to finding practice texts to read? -> https://hskreading.com/category/hsk-3/
+
 
 LOG
+--- Saturday August 7 2021 ---
+- Updated pleco words and characters. Need to work on script to sort the words from pleco.
+- Added a list for words learned in class.
+
 --- Sunday August 1st 2021 ---
 - That works! Filtering now works properly.
 - New idea: turn word series into a list, filter out each word based on known character list, then filter pandas df based on if the words in df match the words i know list.

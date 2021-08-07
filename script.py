@@ -6,7 +6,7 @@ xls = pd.ExcelFile('data/HSK_vocabulary.xlsx')
 df1 = pd.read_excel(xls, 'HSK_1')
 df2 = pd.read_excel(xls, 'HSK_2')
 df3 = pd.read_excel(xls, 'HSK_3')
-faux_df = pd.read_excel(xls, 'TEST')
+df4 = pd.read_excel(xls, 'CLASS_WORDS')
 
 
 ### KNOWN CHARACTERS LOGIC ###
@@ -27,6 +27,7 @@ def select_list():
 	1. HSK 1\n
 	2. HSK 2\n
 	3. HSK 3\n
+	4. CLASS WORDS\n
 	>
 	""")
 	if choice == '1':
@@ -41,6 +42,9 @@ def select_list():
 		print("Selected HSK 3.")
 		df = filter_df(df3, known_characters)
 		print(df)
+	elif choice == '4':
+		print("Selected CLASS WORDS")
+		df = filter_df(df4, known_characters)
 	else:
 		print("Choice unclear, plese reenter.")
 		select_list()
