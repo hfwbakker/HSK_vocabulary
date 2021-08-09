@@ -7,6 +7,7 @@ PROJECT
 
 
 NEXT UP
+- Create a simple GUI with PyQt5.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
 - Write a better exit function.
@@ -16,6 +17,10 @@ NEXT UP
 
 
 LOG
+--- Monday Augst 9 2021 ---
+- Installed PyQt5
+- Installed Qt Designer, will use to create a UI for app.
+
 --- Saturday August 7 2021 ---
 - Updated pleco words and characters. Need to work on script to sort the words from pleco.
 - Added a list for words learned in class.
