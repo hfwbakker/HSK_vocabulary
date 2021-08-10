@@ -7,6 +7,7 @@ PROJECT
 
 
 NEXT UP
+- Finish PyQt5 youtube course. https://www.youtube.com/watch?v=D0iCHFXHb_g&list=PLzMcBGfZo4-lB8MZfHPLTEHO9zJDDLpYj&index=6
 - Create a simple GUI with PyQt5.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
@@ -17,6 +18,10 @@ NEXT UP
 
 
 LOG
+--- Tuesday August 10 2021 ---
+- Developing Qt GUI create with => pyuic5 -x qt-test.ui -o test.py
+- Doing PyQt5 course online.
+
 --- Monday Augst 9 2021 ---
 - Installed PyQt5
 - Installed Qt Designer, will use to create a UI for app.
