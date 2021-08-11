@@ -7,8 +7,10 @@ PROJECT
 
 
 NEXT UP
-- Finish PyQt5 youtube course. https://www.youtube.com/watch?v=D0iCHFXHb_g&list=PLzMcBGfZo4-lB8MZfHPLTEHO9zJDDLpYj&index=6
-- Create a simple GUI with PyQt5.
+- Create a simple GUI with PyQt5. -> check out PyQt5 GUI videos by JohnElder on YouTube.
+    1) Create a main screen where user can select which word list to use
+    2) Selection creates a pop-up box (or new screen) with a display that shows the character(s) + a button for show pinyin/show definition.
+    3) Optional: a button for selecting if you got it right or wrong.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
 - Write a better exit function.
@@ -18,6 +20,9 @@ NEXT UP
 
 
 LOG
+--- Wednesday August 11 2021 ---
+- PyQt5 research. Not much progress except for sorting out what might work or not.
+
 --- Tuesday August 10 2021 ---
 - Developing Qt GUI create with => pyuic5 -x qt-test.ui -o test.py
 - Doing PyQt5 course online.
