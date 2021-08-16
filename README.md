@@ -7,10 +7,9 @@ PROJECT
 
 
 NEXT UP
-- Create a simple GUI with PyQt5. -> check out PyQt5 GUI videos by JohnElder on YouTube.
-    1) Create a main screen where user can select which word list to use
-    2) Selection creates a pop-up box (or new screen) with a display that shows the character(s) + a button for show pinyin/show definition.
-    3) Optional: a button for selecting if you got it right or wrong.
+- PyQt GUI to add:
+    * Ability to select lists (now HSK3 is selected by default)
+    * Click-to-reveal functionality. Right now it shows all through values at the same time.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
 - Write a better exit function.
@@ -20,6 +19,11 @@ NEXT UP
 
 
 LOG
+--- Monday August 16 2021 ---
+- Started developing a PyQt5 GUI.
+- Added work in progress file gui_script.py that has a simplified script integrated with a simple PyQt GUI script.
+- Simplified version is functional, 1 list is selected (HSK3) and clicking "NEXT" rotates through random characters displaying 'char', 'pinyin', and 'definition' simultaneously for now.
+
 --- Wednesday August 11 2021 ---
 - PyQt5 research. Not much progress except for sorting out what might work or not.
 
