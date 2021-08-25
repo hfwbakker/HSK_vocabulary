@@ -8,18 +8,21 @@ PROJECT
 
 NEXT UP
 - PyQt GUI to add:
-    * Ability to select lists (now HSK3 is selected by default)
+    * Add buttons and functionality for all 4 lists.
     * Click-to-reveal functionality. Right now it shows all through values at the same time.
+    * When selected a list to practice, a message should display something like "xxx out of total amount words xxx displayed" to indicate how many words are still "unreadable".
 - Implement classes. Classes classes classes.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
-- Write a better exit function.
 - Write a function where you can select how many words you want to test and then keep score.
-- When selected a list to practice, a message should display something like "xxx out of total amount words xxx displayed" to indicate how many words are still "unreadable".
-- Look in to finding practice texts to read? -> https://hskreading.com/category/hsk-3/
-
+- Create a sample version and upload to forum for feedback.
 
 LOG
+--- Wednesday August 25 2021 ---
+- Basics for a PyQt5 GUI are now there.
+- Figured out how to properly make buttons interactive.
+- Can now select a dataframe with in-app buttons.
+
 --- Monday August 16 2021 ---
 - Started developing a PyQt5 GUI.
 - Added work in progress file gui_script.py that has a simplified script integrated with a simple PyQt GUI script.

@@ -5,7 +5,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 ### HSK WORDS LOGIC ###
 #summarized to only inlcude HSK3
 xls = pd.ExcelFile('data/HSK_vocabulary.xlsx')
+df1 = pd.read_excel(xls, 'HSK_1')
+df2 = pd.read_excel(xls, 'HSK_2')
 df3 = pd.read_excel(xls, 'HSK_3')
+df4 = pd.read_excel(xls, 'CLASS_WORDS')
 
 
 ### KNOWN CHARACTERS LOGIC ###
@@ -18,7 +21,6 @@ for i in lines:
 	if i[0] in skiplist:
 		continue
 	known_characters.append(i[0])
-
 
 
 ### FILTER DF ###
@@ -40,14 +42,35 @@ def filter_df(df, chars):
 
 	filtered_df = df[df['char'].isin(filtered_words)]
 	final_df = filtered_df.reset_index(drop=True)
-	print(final_df)
+	# print(final_df)
 	return final_df
 
 
 ### SELECT WORD LIST ###
 # summarized to only HSK3 df for sake of testing
-df = filter_df(df3, known_characters)
+# df = filter_df(df4, known_characters)
 
+def set_df1():
+    global df
+    df = filter_df(df1, known_characters)
+    return df
+
+def set_df2():
+    global df
+    df = filter_df(df2, known_characters)
+    return df
+
+def set_df3():
+    global df
+    df = filter_df(df3, known_characters)
+    return df
+
+def set_df4():
+    global df
+    df = filter_df(df4, known_characters)
+    return df
+
+set_df4()
 
 
 ### SELECT RANDOM WORD ###
@@ -70,40 +93,72 @@ rand_char = retrieve_word(df)
 class Ui_H(object):
     def setupUi(self, H):
         H.setObjectName("H")
-        H.resize(569, 600)
+        H.resize(569, 700)
         self.centralwidget = QtWidgets.QWidget(H)
         self.centralwidget.setObjectName("centralwidget")
+
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(30, 370, 501, 91))
         font = QtGui.QFont()
-        font.setPointSize(24)
+        font.setPointSize(20)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
+
+        # experimental second button logic
+        self.pushButton2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton2.setGeometry(QtCore.QRect(30, (370 + 91), 250, 91))
+        self.pushButton2.setFont(font)
+        self.pushButton2.setObjectName("pushButton2")
+
+        self.pushButton3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton3.setGeometry(QtCore.QRect((30 + 250), (370 + 91), 250, 91))
+        self.pushButton3.setFont(font)
+        self.pushButton3.setObjectName("pushButton3")
+
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(40, 36, 481, 271))
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        self.label.setFont(font)
+        label_font = QtGui.QFont()
+        label_font.setPointSize(50)
+        self.label.setFont(label_font)
         self.label.setObjectName("label")
+
         H.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(H)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 569, 22))
         self.menubar.setObjectName("menubar")
         H.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(H)
         self.statusbar.setObjectName("statusbar")
         H.setStatusBar(self.statusbar)
         self.retranslateUi(H)
 
 
-        self.pushButton.clicked.connect(lambda: self.label.setText(retrieve_word(df)))
+        # self.pushButton.clicked.connect(lambda: self.label.setText(retrieve_word(df)))
+        # self.pushButton2.clicked.connect(lambda: self.label.setText("HSK 1 button"))
+        # self.pushButton3.clicked.connect(lambda: self.label.setText("Class vocab button"))
+
+
         QtCore.QMetaObject.connectSlotsByName(H)
 
     def retranslateUi(self, H):
         _translate = QtCore.QCoreApplication.translate
         H.setWindowTitle(_translate("H", "HSK VOCABULARY"))
         self.pushButton.setText(_translate("H", "NEXT"))
-        self.label.setText(_translate("H", "TextLabel"))
+        self.label.setText(_translate("H", "HSK_vocabulary app"))
+
+        self.pushButton.clicked.connect(lambda: self.label.setText(retrieve_word(df)))
+        self.pushButton2.clicked.connect(lambda: self.label.setText("HSK 1 button"))
+        self.pushButton3.clicked.connect(lambda: self.label.setText("Class vocab button"))
+
+        self.pushButton2.setText(_translate("H", "HSK 1"))
+        self.pushButton2.clicked.connect(lambda: set_df1())
+        self.pushButton2.clicked.connect(lambda: print(df))
+
+        self.pushButton3.setText(_translate("H", "Class vocab"))
+        self.pushButton3.clicked.connect(lambda: set_df4())
+        self.pushButton3.clicked.connect(lambda: print(df))
 
 
 if __name__ == "__main__":
