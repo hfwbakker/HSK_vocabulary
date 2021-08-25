@@ -10,6 +10,7 @@ NEXT UP
 - PyQt GUI to add:
     * Ability to select lists (now HSK3 is selected by default)
     * Click-to-reveal functionality. Right now it shows all through values at the same time.
+- Implement classes. Classes classes classes.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
 - Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
 - Write a better exit function.
