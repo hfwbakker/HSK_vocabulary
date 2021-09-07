@@ -10,7 +10,7 @@ df4 = pd.read_excel(xls, 'CLASS_WORDS')
 
 
 ### KNOWN CHARACTERS LOGIC ###
-pleco_file = open("data/pleco_cards.txt", "r")
+pleco_file = open("data/known_chars.txt", "r")
 lines = pleco_file.readlines()
 known_characters = []
 skiplist = "abcdefghijklmnopqrstuvwxyz/\\"

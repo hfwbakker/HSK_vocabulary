@@ -13,11 +13,16 @@ NEXT UP
     * When selected a list to practice, a message should display something like "xxx out of total amount words xxx displayed" to indicate how many words are still "unreadable".
 - Implement classes. Classes classes classes.
 - Write a function that allows users to select which set of info they want to be prompted first (汉子, pinyin, or definition).
-- Write a script that clean and sort the pleco words. Need to filter, translate, and put into a list that can be added to the words list.
 - Write a function where you can select how many words you want to test and then keep score.
 - Create a sample version and upload to forum for feedback.
 
 LOG
+--- Tuesday September 7th 2021 ---
+- Created a new folder called "pleco" with scripts for filtering pleco input. Scripts output in to data folder.
+- deleted lambda_test.py
+- Created a script that takes pleco words list, cleans it up, and puts it into an excel sheet
+- Organized pleco folder with sub folders for in and output for clarity.
+
 --- Wednesday August 25 2021 ---
 - Basics for a PyQt5 GUI are now there.
 - Figured out how to properly make buttons interactive.
