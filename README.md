@@ -17,6 +17,11 @@ NEXT UP
 - Create a sample version and upload to forum for feedback.
 
 LOG
+--- Wednesday September 8th 2021 --- 
+- Reviewing design of app, adding buttons and info display.
+- Cleaned up excess code.
+- Created HSK 2 and HSK 3 buttons (inc. functionality)
+
 --- Tuesday September 7th 2021 ---
 - Created a new folder called "pleco" with scripts for filtering pleco input. Scripts output in to data folder.
 - deleted lambda_test.py
