@@ -42,7 +42,6 @@ def filter_df(df, chars):
 
 	filtered_df = df[df['char'].isin(filtered_words)]
 	final_df = filtered_df.reset_index(drop=True)
-	# print(final_df)
 	return final_df
 
 
@@ -69,16 +68,20 @@ def set_df4():
     df = filter_df(df4, known_characters)
     return df
 
-set_df4()
+set_df1()
 
 
 ### SELECT RANDOM WORD ###
-# summarized for sake of testing
 def retrieve_word(df):
-	word_row = random.randint(1, len(df.index))
-	return f"{df.loc[word_row, 'char']} \n{df.loc[word_row, 'pinyin']} \n{df.loc[word_row, 'definition']}"
-
-rand_char = retrieve_word(df)
+    global word_row
+    word_row = random.randint(0, len(df.index-1))
+    global retrieved_character
+    global retrieved_pinyin
+    global retrieved_definition
+    retrieved_character = df.loc[word_row, 'char']
+    retrieved_pinyin = df.loc[word_row, 'pinyin']
+    retrieved_definition = df.loc[word_row, 'definition']
+    return retrieved_character, retrieved_pinyin, retrieved_definition
 
 
 ### GUI LOGIC ###
@@ -121,13 +124,31 @@ class Ui_H(object):
         self.pushButton4.setFont(font)
         self.pushButton4.setObjectName("pushButton4")
 
-        # Display screen
+        # Main display screen
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(40, 36, 481, 271))
+        self.label.setGeometry(QtCore.QRect(40, 15, 481, 100))
         label_font = QtGui.QFont()
-        label_font.setPointSize(50)
+        label_font.setPointSize(25)
         self.label.setFont(label_font)
         self.label.setObjectName("label")
+        self.label.setStyleSheet("""background-color: lightblue; 
+                                    border: 1px solid black;""")
+
+        # Sub display #1
+        self.labelSub1 = QtWidgets.QLabel(self.centralwidget)
+        self.labelSub1.setGeometry(QtCore.QRect(40, (15 + 101), 481, 100))
+        self.labelSub1.setFont(label_font)
+        self.labelSub1.setObjectName("labelSub1")
+        self.labelSub1.setStyleSheet("""background-color: lightgreen; 
+                                        border: 1px solid black;""")
+    
+        # Sub display #2
+        self.labelSub2 = QtWidgets.QLabel(self.centralwidget)
+        self.labelSub2.setGeometry(QtCore.QRect(40, (15 + 202), 481, 100))
+        self.labelSub2.setFont(label_font)
+        self.labelSub2.setObjectName("labelSub2")
+        self.labelSub2.setStyleSheet("""background-color: lightyellow; 
+                                        border: 1px solid black;""")
 
         # I THINK that this is the top menu bar
         H.setCentralWidget(self.centralwidget)
@@ -149,27 +170,28 @@ class Ui_H(object):
         self.pushButton.setText(_translate("H", "NEXT"))
         self.label.setText(_translate("H", "Main display"))
 
-        self.pushButton.clicked.connect(lambda: self.label.setText(retrieve_word(df)))
-        self.pushButton1.clicked.connect(lambda: self.label.setText("HSK 1 button"))
-        self.pushButton2.clicked.connect(lambda: self.label.setText("HSK 2 button"))
-        self.pushButton3.clicked.connect(lambda: self.label.setText("HSK 3 button"))
+        self.pushButton.clicked.connect(lambda: retrieve_word(df))
+        self.pushButton.clicked.connect(lambda: self.label.setText(retrieved_character))
+        self.pushButton.clicked.connect(lambda: self.labelSub1.setText(retrieved_pinyin))
+        self.pushButton.clicked.connect(lambda: self.labelSub2.setText(retrieved_definition))
+        self.pushButton.clicked.connect(lambda: self.pushButton.setText(f"NEXT ({word_row}/{len(df.index)})"))
+
+        self.pushButton1.clicked.connect(lambda: self.label.setText("HSK 1 vocabulary"))
+        self.pushButton2.clicked.connect(lambda: self.label.setText("HSK 2 vocabulary"))
+        self.pushButton3.clicked.connect(lambda: self.label.setText("HSK 3 vocabulary"))
         self.pushButton4.clicked.connect(lambda: self.label.setText("Class vocabulary"))
 
         self.pushButton1.setText(_translate("H", "HSK 1"))
         self.pushButton1.clicked.connect(lambda: set_df1())
-        self.pushButton1.clicked.connect(lambda: print(df))
 
         self.pushButton2.setText(_translate("H", "HSK 2"))
         self.pushButton2.clicked.connect(lambda: set_df2())
-        self.pushButton2.clicked.connect(lambda: print(df))
 
         self.pushButton3.setText(_translate("H", "HSK 3"))
         self.pushButton3.clicked.connect(lambda: set_df3())
-        self.pushButton3.clicked.connect(lambda: print(df))
 
         self.pushButton4.setText(_translate("H", "Class vocabulary"))
         self.pushButton4.clicked.connect(lambda: set_df4())
-        self.pushButton4.clicked.connect(lambda: print(df))
 
 
 if __name__ == "__main__":

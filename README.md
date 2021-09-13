@@ -17,6 +17,13 @@ NEXT UP
 - Create a sample version and upload to forum for feedback.
 
 LOG
+--- Monday September 13th 2021 ---
+- Added background coloring to certain elements in the GUI for easier distinction
+- Added 2 "sub displays" with the intention to allow for seperately display characters, pinyin, and definition.
+- Three displays now correctly show chars, pinyin, and definition each and have right functionality added.
+- Next button now shows which row out of how many rows is currently being shown.
+- word_row = 118 throws keyerror when using HSK_1 list. Possibly need to reset index. FIXED: issue was with randomized row number, if resulting in max length of df index it would return a number that was 1 outside of df range and therefore threw a keyerror.
+
 --- Wednesday September 8th 2021 --- 
 - Reviewing design of app, adding buttons and info display.
 - Cleaned up excess code.
